@@ -40,74 +40,88 @@ static void setAutomaticDurationValue() {
 		green_automatic_value = green_manual_value;
 	}
 }
-
-
-void fsm_for_input_processing() {
-	switch (buttonState[0]) {
-		case BUTTON_RELEASED:
-			if (is_button_pressed(0)) {
-				buttonState[0] = BUTTON_PRESSED;
-				mode++;
-				if (mode > 4) {
-					mode = 1;
-					resetCountValue();
-				}
+void fsm_test(){
+		if(isButtonPressed(0)){
+			mode++;
+			if (mode > 4) {
+				mode = 1;
+				resetCountValue();
 			}
-			break;
-		case BUTTON_PRESSED:
-			if (!is_button_pressed(0)) {
-				buttonState[0] = BUTTON_RELEASED;
-			}
-			break;
-		default:
-			break;
-	}
-
-	switch (buttonState[1]) {
-		case BUTTON_RELEASED:
-			if (is_button_pressed(1)) {
-				buttonState[1] = BUTTON_PRESSED;
-				increaseManualValue();
-			}
-			break;
-		case BUTTON_PRESSED:
-			if (!is_button_pressed(1)) {
-				buttonState[1] = BUTTON_RELEASED;
-			}
-			if (is_button_pressed_1s(1)) {
-				buttonState[1] = BUTTON_PRESSED_MORE_THAN_1_SECOND;
-				increaseManualValue();
-			}
-			break;
-		case BUTTON_PRESSED_MORE_THAN_1_SECOND:
-			if (!is_button_pressed(1)) {
-				buttonState[1] = BUTTON_RELEASED;
-			}
-
-			if(is_button_pressed_1s(1)) {
-				increaseManualValue();
-			}
-			break;
-		default:
-			break;
-	}
-
-	switch (buttonState[2]) {
-		case BUTTON_RELEASED:
-			if (is_button_pressed(2)) {
-				buttonState[2] = BUTTON_PRESSED;
-				setAutomaticDurationValue();
-			}
-			break;
-		case BUTTON_PRESSED:
-			if (!is_button_pressed(2)) {
-				buttonState[2] = BUTTON_RELEASED;
-			}
-			break;
-		default:
-			break;
-	}
+		}
+		if(isButtonPressed(1)){
+			increaseManualValue();
+		}
+		if(isButtonPressed(2)){
+			setAutomaticDurationValue();
+		}
 }
+
+//void fsm_for_input_processing() {
+//	switch (buttonState[0]) {
+//		case BUTTON_RELEASED:
+//			if (is_button_pressed(0)) {
+//				buttonState[0] = BUTTON_PRESSED;
+//				mode++;
+//				if (mode > 4) {
+//					mode = 1;
+//					resetCountValue();
+//				}
+//			}
+//			break;
+//		case BUTTON_PRESSED:
+//			if (!is_button_pressed(0)) {
+//				buttonState[0] = BUTTON_RELEASED;
+//			}
+//			break;
+//		default:
+//			break;
+//	}
+//
+//	switch (buttonState[1]) {
+//		case BUTTON_RELEASED:
+//			if (is_button_pressed(1)) {
+//				buttonState[1] = BUTTON_PRESSED;
+//				increaseManualValue();
+//			}
+//			break;
+//		case BUTTON_PRESSED:
+//			if (!is_button_pressed(1)) {
+//				buttonState[1] = BUTTON_RELEASED;
+//			}
+//			if (is_button_pressed_1s(1)) {
+//				buttonState[1] = BUTTON_PRESSED_MORE_THAN_1_SECOND;
+//				increaseManualValue();
+//			}
+//			break;
+//		case BUTTON_PRESSED_MORE_THAN_1_SECOND:
+//			if (!is_button_pressed(1)) {
+//				buttonState[1] = BUTTON_RELEASED;
+//			}
+//
+//			if(is_button_pressed_1s(1)) {
+//				increaseManualValue();
+//			}
+//			break;
+//		default:
+//			break;
+//	}
+//
+//	switch (buttonState[2]) {
+//		case BUTTON_RELEASED:
+//			if (is_button_pressed(2)) {
+//				buttonState[2] = BUTTON_PRESSED;
+//				setAutomaticDurationValue();
+//			}
+//			break;
+//		case BUTTON_PRESSED:
+//			if (!is_button_pressed(2)) {
+//				buttonState[2] = BUTTON_RELEASED;
+//			}
+//			break;
+//		default:
+//			break;
+//	}
+//}
 
 
 

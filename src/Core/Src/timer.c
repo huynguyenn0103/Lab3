@@ -37,7 +37,7 @@ void timer_run() {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	timer_run();
 	if (htim->Instance == TIM2) {
-		button_reading();
+		getKeyInput();
 	}
 }
 

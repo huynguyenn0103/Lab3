@@ -14,7 +14,8 @@
 #include "timer.h"
 #include "global.h"
 
-void fsm_for_input_processing();
+void fsm_test();
+//void fsm_for_input_processing();
 void LedTimeDurationInit();
 
 

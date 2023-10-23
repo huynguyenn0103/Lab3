@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "input_reading.h"
+#include "button.h"
 
 #define TIMER_CYCLE			1
 

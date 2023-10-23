@@ -104,7 +104,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  	  fsm_for_input_processing();
+//	  	  fsm_for_input_processing();
+	  	  fsm_test();
 	 	  if (timer1_flag == 1) {
 	 		  LEDScanning();
 	 		  setTimer1(1);
